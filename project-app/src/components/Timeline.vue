@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <PostForm @submit="addPost" />
+    <div v-for="post in posts" :key="post.id">
+      <PostComponent :post="post" @edit="editPost" @remove="removePost" />
+    </div>
+  </div>
+</template>
+
+<script>
+
+import PostForm from './PostForm.vue'
+import PostComponent from './PostComponent.vue'
+
+export default {
+    name: "TimelineComponent",
+    components: {
+    PostForm,
+    PostComponent
+  },
+  props: {
+    posts: Array
+  },
+  methods: {
+    addPost(newPost) {
+      this.$emit('add-post', newPost)
+    },
+    editPost(editedPost) {
+      this.$emit('edit-post', editedPost)
+    },
+    removePost(id) {
+      this.$emit('remove-post', id)
+    }
+  }
+}
+</script>

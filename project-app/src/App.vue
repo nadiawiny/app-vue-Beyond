@@ -1,28 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <v-app>
+      <v-app-bar color="primary">
+        <v-btn @click="clearTimeline" color="error">Apagar Publicações</v-btn>
+      </v-app-bar>
+      <v-main>
+        <Timeline :posts="posts" @add-post="addPost" @edit-post="editPost" @remove-post="removePost" />
+      </v-main>
+      <v-app-bar app></v-app-bar>
+    </v-app>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Vue from 'vue'
+import Timeline from './components/Timeline.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    Timeline
+  },
+  data() {
+    return {
+      posts: []
+    }
+  },
+  methods: {
+    addPost(newPost) {
+      this.posts.push(newPost)
+    },
+    editPost(editedPost) {
+      const index = this.posts.findIndex(post => post.id === editedPost.id)
+      if (index !== -1) {
+        Vue.set(this.posts, index, editedPost)
+      }
+    },
+    removePost(id) {
+      this.posts = this.posts.filter(post => post.id !== id)
+    },
+    clearTimeline() {
+      this.posts = []
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
