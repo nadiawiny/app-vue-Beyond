@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <v-app>
-      <v-app-bar color="primary">
+  <v-app>
+    <v-main>
+      <v-app-bar app color = "#008DC0">Rede Social</v-app-bar>
         <v-btn @click="clearTimeline" color="error">Apagar Publicações</v-btn>
-      </v-app-bar>
-      <v-main>
-        <Timeline :posts="posts" @add-post="addPost" @edit-post="editPost" @remove-post="removePost" />
+        <div>
+            <Timeline :posts="posts" @add-post="addPost" @edit-post="editPost" @remove-post="removePost" />
+          </div>
       </v-main>
-      <v-app-bar app></v-app-bar>
-    </v-app>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -26,6 +24,7 @@ export default {
     }
   },
   methods: {
+    
     addPost(newPost) {
       this.posts.push(newPost)
     },

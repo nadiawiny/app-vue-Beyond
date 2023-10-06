@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PostForm @submit="addPost" />
+    <PostForm @plus="addPost" />
     <div v-for="post in posts" :key="post.id">
       <PostComponent :post="post" @edit="editPost" @remove="removePost" />
     </div>
@@ -25,8 +25,8 @@ export default {
     addPost(newPost) {
       this.$emit('add-post', newPost)
     },
-    editPost(editedPost) {
-      this.$emit('edit-post', editedPost)
+    editPost(newPost) {
+      this.$emit('edit-post', newPost)
     },
     removePost(id) {
       this.$emit('remove-post', id)

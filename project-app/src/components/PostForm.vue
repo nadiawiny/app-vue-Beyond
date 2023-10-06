@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <v-textarea v-model="newPost.text" label="Nova Publicação" rows="3"></v-textarea>
-    <v-btn @click="submitPost" color="primary">Publicar</v-btn>
-  </div>
-</template>
+  <v-app-bar fixed bottom color = "black">
+      <v-text-field v-model="newPost.text" @keyup.enter="plusPost()" solo hide-details label="Nova Publicação"></v-text-field>
+      <v-btn @click="plusPost()" icon color ="#008DC0">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+  </v-app-bar>
+</template>  
 
 <script>
 export default {
@@ -16,11 +18,12 @@ export default {
     }
   },
   methods: {
-    submitPost() {
+    plusPost(){
       if (this.newPost.text.trim() === '') return
       this.newPost.id = Date.now()
-      this.$emit('submit', this.newPost)
-      this.newPost.text = ''
+      this.$emit('plus', this.newPost)
+      this.newPost = ''
+      this.textInput = ''
     }
   }
 }
