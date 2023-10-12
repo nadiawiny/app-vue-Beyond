@@ -25,8 +25,8 @@ export default {
     addPost(newPost) {
       this.$emit('add-post', newPost)
     },
-    editPost(newPost) {
-      this.$emit('edit-post', newPost)
+    editPost(newPost, post) {
+      this.$emit('edit-post', newPost, post)
     },
     removePost(id) {
       this.$emit('remove-post', id)
