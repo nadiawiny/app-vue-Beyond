@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>Editar Posts</v-card-title>
       <v-card-text>
-        <v-text-field v-model="editedText" label="Novo Post"></v-text-field>
+        <v-text-field v-model="editedText.text" label="Novo Post"></v-text-field>
       </v-card-text>
       <v-card-actions>
         <v-btn @click="salvarPostEditado">Salvar</v-btn>
@@ -24,9 +24,9 @@ export default {
   },
   data() {
     return {
-      editedText: "",
       localDialog: this.dialog,
-    };
+      editedText: this.editarpost,
+    }
   },
   watch: {
     dialog: {

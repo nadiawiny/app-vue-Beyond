@@ -9,7 +9,7 @@ export default {
   name: 'BotaoDelete',
   methods: {
     deletarTodosPots() {
-      this.$emit('deletar-Todos-Pots'); // Emitir o evento para o componente pai
+      this.$emit('deletar-Todos-Pots')
     }
   },
 };

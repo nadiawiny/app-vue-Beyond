@@ -15,7 +15,6 @@
         </div>
         <EditPosts :dialog="dialog" :editarpost="editarpost"
         @salvar-post-editado="salvarpostsedit" @cancelar-editar="cancelaredit" />
-   
     </v-main>
   </v-app>
   </template>
@@ -39,10 +38,12 @@ export default {
       {
         name: "Dr. Derick",
         text: "Hoje é um belo dia para salvar vidas",
+        id: 0,
       },
       {
         name: "Dr. Yang",
         text: "Eu não sou linda, eu sou inteligente, quer me elogiar? eloquia o meu cerebro",
+        id: 1,
       },
     ],
     novoPosts: {
@@ -87,7 +88,7 @@ export default {
       this.Posts.push(post);
     },
   },
-};
+}
 </script>
 <style>
 .margem-card {
