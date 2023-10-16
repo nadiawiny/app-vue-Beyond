@@ -20,7 +20,7 @@
     data() {
       return {
         user: {},
-        users: [ // Declare 'users' como uma variável de dados
+        users: [ 
           { 
             id: 1,
             name: 'João',
@@ -44,7 +44,7 @@
     },
     computed: {
       userList(){
-        return this.$store.state.userList
+        return this.$store.state.userList  
       }
     },
     created() {

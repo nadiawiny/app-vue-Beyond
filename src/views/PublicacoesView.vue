@@ -1,8 +1,8 @@
 <template>
     <v-app>
-        <!-- <v-app-bar app color="#000000" flat></v-app-bar> -->
         <BotaoDelete @deletar-Todos-Pots="deletarTodosPots" />
          <AddPosts @novo-post="adicionarPost" />
+
          <div v-for="(post, index) in Posts" :key="index" class="post-card">
            <v-card color="#4E97D1" class="margem-card">
              <v-card-subtitle class="font-weight-bold">{{ post.name }}</v-card-subtitle>
@@ -11,6 +11,7 @@
              <v-btn @click="removePost(index)" color="error">Remover</v-btn>
            </v-card>
          </div>
+         
          <EditPosts :dialog="dialog" :editarpost="editarpost"
          @salvar-post-editado="salvarpostsedit" @cancelar-editar="cancelaredit" />
     </v-app>

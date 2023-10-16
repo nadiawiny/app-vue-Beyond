@@ -3,7 +3,6 @@
     <v-card-title>Linha do Tempo</v-card-title>
     <v-card-subtitle class="usuario">Publicações do usuário {{ userId }}</v-card-subtitle>
     
-    <!-- Listagem das publicações do usuário -->
     <div v-for="(post, index) in userPosts" :key="index" class="post-card">
       <v-card color="#4E97D1" class="margem-card">
         <v-card-subtitle class="font-weight-bold">{{ post.name }}</v-card-subtitle>
@@ -55,7 +54,7 @@ export default {
         text: 'Deixe pra trás o que não te leva pra frente.'
       },
     ];
-    // Filtra as publicações do usuário com base no userId
+    // filtra as publicações do usuário com base no userId
     this.userPosts = allPosts.filter(post => post.id === userId);
   },
 };
