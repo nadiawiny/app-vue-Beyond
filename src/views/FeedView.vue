@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Linha do Tempo</h1>
-    <p>Publicações do usuário {{ userId }}</p>
+    <v-card-title>Linha do Tempo</v-card-title>
+    <v-card-subtitle class="usuario">Publicações do usuário {{ userId }}</v-card-subtitle>
     
     <!-- Listagem das publicações do usuário -->
     <div v-for="(post, index) in userPosts" :key="index" class="post-card">
@@ -27,22 +27,32 @@ export default {
       {
         id: 1,
         name: "João",
-        text: "Hoje é um belo dia para salvar vidas",
+        text: "Hoje é um belo dia para ser feliz",
       },
       {
         id: 1,
         name: "João",
-        text: "Oi bom dia!",
+        text: "A gratidão é a memória do coração.",
       },
       {
         id: 2,
         name: "Clara",
-        text: "Eu não sou linda, eu sou inteligente, quer me elogiar? eloquia o meu cerebro",
+        text: "Insista, persista e nunca desista.",
+      },
+      {
+        id: 2,
+        name: "Clara",
+        text: "Não importa o que você decidiu. O que importa é que isso te faça feliz.",
       },
       {
         id: 3,
         name: 'Nádia',
         text: 'Boa Noite!'
+      },
+      {
+        id: 3,
+        name: 'Nádia',
+        text: 'Deixe pra trás o que não te leva pra frente.'
       },
     ];
     // Filtra as publicações do usuário com base no userId
@@ -56,5 +66,9 @@ export default {
   margin-top: 1em;
   margin-left: 10px;
   margin-right: 10px;
+}
+.usuario{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 17px;
 }
 </style>

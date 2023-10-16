@@ -13,7 +13,7 @@
 export default {
   data: () => ({
     novoPosts: {
-      name: "Eu",
+      name: "Nádia",
       text: "",
     },
   }),
@@ -25,7 +25,7 @@ export default {
           text: this.novoPosts.text,
         };
         this.$emit("novo-post", post);
-        this.novoPosts.name = "Eu";
+        this.novoPosts.name = "Nádia";
         this.novoPosts.text = "";
       }
     },
