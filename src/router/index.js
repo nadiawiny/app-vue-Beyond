@@ -4,10 +4,16 @@ import PublicacoesView from '../views/PublicacoesView.vue'
 import FeedView from '../views/FeedView.vue'
 import PerfilUsers from '../views/PerfilUsers.vue'
 import UserList from '../views/UserList.vue'
+import LoginView from '../views/LoginView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
   {
     path: '/publi',
     name: 'publi',
@@ -30,7 +36,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/usuario',
+    redirect: '/login',
   }
 ]
 

@@ -1,4 +1,3 @@
-
 <template>
     <div>
       <v-card-title>Perfil do Usuário</v-card-title>
