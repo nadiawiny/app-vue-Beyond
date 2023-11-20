@@ -27,26 +27,28 @@ const store = new Vuex.Store({
           console.log('Usuário cadastrado', result)
         })
         .catch((error) => {
-          alert('usuario ja cadastrado', error)
+          alert('usuario ainda não cadastrado', error)
         })
     },
-    login({ commit }, payload) {
-      const { email, password } = payload
-      signInWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-          console.log('Usuário logado', result)
-          commit('setUser', result.user)
-        })
-        .catch((error) => {
-          alert('usuario já logado',error)
-        })
-    }
+      login({ commit }, payload) {
+        const { email, password } = payload;
+        return signInWithEmailAndPassword(auth, email, password)
+          .then((result) => {
+            console.log('Usuário logado', result)
+            commit('setUser', result.user);
+            return result.user; // Retorna o usuário para tratar sucesso no componente
+          })
+          .catch((error) => {
+            console.error('Erro usuario já logado', error);
+            throw error;
+          });
+      },
   }
 })
 
 new Vue({
   vuetify,
-  router,
   store,
+  router,
   render: h => h(App)
 }).$mount('#app')

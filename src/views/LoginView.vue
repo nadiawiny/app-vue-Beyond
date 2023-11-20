@@ -1,5 +1,6 @@
 <template>
-  <v-container fluid>
+  <v-app class="tela-login">
+    <v-container fluid>
     <v-layout align-center justify-center>
       <v-card class="elevation-12" max-width="400">
         <v-card-title class="primary">
@@ -19,17 +20,18 @@
       </v-card>
     </v-layout>
   </v-container>
+</v-app>
 </template>
 
 <script>
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../config/index.js'; // Importe a instância de autenticação do Firebase
+import { auth } from '../config/index.js'; // Importando a instância de autenticação do Firebase
 
 export default {
   data() {
     return {
-      email: '',
-      password: '',
+        email: '',
+        password: '',
     };
   },
   methods: {
@@ -38,15 +40,20 @@ export default {
         email: this.email,
         password: this.password,
       })
-      onAuthStateChanged(auth, (user) =>{
-        if (user){
-          if(this.$route.path !== '/usuario'){
-            this.$router.push('/usuario')
+      .then(() => {
+        onAuthStateChanged(auth, (user) =>{
+          if (user){
+            if(this.$route.path !== '/publi'){
+              this.$router.push('/publi')
+            }
+          }else{
+            alert('Usuário não encontrado')
           }
-        }else{
-          // this.$router.push('/login')
-          alert('Usuário não encontrado')
-        }
+        })
+      })
+      .catch((error) => {
+        console.error('Erro durante o login', error);
+        alert('Usuário não cadastrado, efetue o login');
       })
     },
     createAcc(){
@@ -58,3 +65,16 @@ export default {
   },
  };
 </script>
+
+<style scoped>
+.tela-login{
+  background-color: #faf7f7;
+}
+.elevation-12{
+    margin-top: 10em;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+</style>

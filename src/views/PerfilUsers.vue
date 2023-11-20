@@ -1,5 +1,12 @@
 <template>
     <div>
+      <v-app-bar app color="blue" flat>
+        <v-btn icon @click="$router.push(`/usuario`)">
+          <v-icon>mdi-arrow-left</v-icon>
+        </v-btn>
+        <v-spacer></v-spacer>
+     </v-app-bar>
+
       <v-card-title>Perfil do Usuário</v-card-title>
       <v-card-subtitle class="usuario">Informações do usuário {{ userId }}</v-card-subtitle>
 

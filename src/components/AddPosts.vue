@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar fixed bottom color="#000000">
+    <v-app-bar fixed bottom color="#4E97D1">
       <v-text-field v-model="novoPosts.text" @keyup.enter="adicionarPost" solo hide-details label="Postagem"></v-text-field>
       <v-btn @click="adicionarPost" icon color="white">
         <v-icon>mdi-plus</v-icon>

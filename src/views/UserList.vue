@@ -1,5 +1,12 @@
 <template>
   <div>
+    <v-app-bar app color="blue" flat>
+      <v-btn icon @click="$router.push(`/publi`)">
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
     <v-card-title >Lista de Usuários</v-card-title>
     <v-text-field class="barra-pesquisa" v-model="searchQuery" placeholder="Pesquisar usuários"></v-text-field>
 
